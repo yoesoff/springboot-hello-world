@@ -1,20 +1,19 @@
-package com.ibrahim;
+package springboot;
 
 import com.ibrahim.controllers.GreetingController;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan("com.ibrahim")
 public class HaloDuniaApplication    {
 
 	public static void main(String[] args) {
 		System.out.println("Applikasi Halo Dunia mulai!");
-
 		ConfigurableApplicationContext context = SpringApplication.run(HaloDuniaApplication.class, args);
-
-
 		GreetingController hw = context.getBean(GreetingController.class);
 		hw.sayHello();
 

@@ -1,12 +1,9 @@
 package com.ibrahim.services;
 
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Component;
-
-@Component
-@Profile({"default", "english"})
+/**
+ * Tanpa anotasi apapun disini karena akan dibuat manual
+ */
 public class HelloWorldEnglishImpl implements HelloWorldService {
-
     public String getGreeting() {
         return "Hello World in English!";
     }
