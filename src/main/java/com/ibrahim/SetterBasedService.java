@@ -5,10 +5,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SetterBasedService {
-    @Autowired
+    
     private HelloWorldService helloWorldService;
+
+    @Autowired
+    public void setHelloWorldService(HelloWorldService helloWorldService) {
+        this.helloWorldService = helloWorldService;
+    }
 
     public void getMessage() {
         helloWorldService.sayHello();
-    }   
+    }
+
 }
