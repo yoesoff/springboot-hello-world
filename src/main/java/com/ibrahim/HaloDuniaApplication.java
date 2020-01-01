@@ -26,9 +26,9 @@ public class HaloDuniaApplication    {
 		// injectedByConstructorService.getMessage();
 
 		// // Inject di Setter
-		SetterBasedService setterBasedService = context.getBean(SetterBasedService.class);
-		System.out.println("Hei ini setter based injection");
-		setterBasedService.getMessage();
+		// SetterBasedService setterBasedService = context.getBean(SetterBasedService.class);
+		// System.out.println("Hei ini setter based injection");
+		// setterBasedService.getMessage();
 		
 	}
 
