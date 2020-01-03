@@ -10,7 +10,12 @@
 
     <context:component-scan base-package="com.ibrahim"></context:component-scan>
 
-    <bean id="greetingController" class="com.ibrahim.controllers.GreetingController"></bean>
+    <bean id="greetingController" class="com.ibrahim.controllers.GreetingController">
+        <property name="helloWorldService" ref="helloWorldIDefault"></property>
+        <property name="helloWorldServiceJawa" ref="jawa"></property>
+        <property name="helloWorldServiceSunda" ref="sunda"></property>
+        <property name="helloWorldServicePadang" ref="padang"></property>
+    </bean>
 
     <bean id="helloWordFactory" class="com.ibrahim.services.HelloWorldFactory"></bean>
 
@@ -25,19 +30,19 @@
     </bean>
 
     <!-- Bean jawa via factory -->
-    <bean id="java" factory-bean="helloWordFactory" factory-method="createHelloWorldService">
+    <bean id="jawa" factory-bean="helloWordFactory" factory-method="createHelloWorldService">
         <constructor-arg value="jawa"></constructor-arg>
     </bean>
 
     <!-- Beans dengan profile dan factory-->
     <beans profile="indo">
-        <bean id="helloWorldIndoImpl" factory-bean="helloWordFactory" factory-method="createHelloWorldService" primary="true">
+        <bean id="helloWorldIDefault" factory-bean="helloWordFactory" factory-method="createHelloWorldService" primary="true">
             <constructor-arg value="indo"></constructor-arg>
         </bean>
     </beans>
 
     <beans profile="english">
-        <bean id="helloWorldEnglishImpl" factory-bean="helloWordFactory" factory-method="createHelloWorldService" primary="true">
+        <bean id="helloWorldIDefault" factory-bean="helloWordFactory" factory-method="createHelloWorldService" primary="true">
             <constructor-arg value="english"></constructor-arg>
         </bean>
     </beans>

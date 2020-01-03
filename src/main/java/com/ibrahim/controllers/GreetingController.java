@@ -1,35 +1,29 @@
 package com.ibrahim.controllers;
 
-import com.ibrahim.services.HelloWorldFactory;
 import com.ibrahim.services.HelloWorldService;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 public class GreetingController {
 
-    @Autowired
     private HelloWorldService helloWorldService;
 
     private HelloWorldService helloWorldServiceJawa; 
 
     private HelloWorldService helloWorldServiceSunda; 
 
-    @Autowired
-    public void setHelloWorldServiceJawa(HelloWorldFactory factory) {
-        this.helloWorldServiceJawa = factory.createHelloWorldService("jawa");
-    }
-
-    @Autowired
-    public void setHelloWorldServiceSunda(HelloWorldFactory factory) {
-        this.helloWorldServiceSunda = factory.createHelloWorldService("sunda");
-    }
-
     private HelloWorldService helloWorldServicePadang;
-    
-    @Autowired
-    // @Qualifier("helloWorldPadangImpl")
-    @Qualifier("padang")
+
+    public void setHelloWorldService(HelloWorldService helloWorldService) {
+        this.helloWorldService = helloWorldService;
+    }
+
+    public void setHelloWorldServiceJawa(HelloWorldService helloWorldServiceJawa) {
+        this.helloWorldServiceJawa = helloWorldServiceJawa;
+    }
+
+    public void setHelloWorldServiceSunda(HelloWorldService helloWorldServiceSunda) {
+        this.helloWorldServiceSunda = helloWorldServiceSunda;
+    }
+
     public void setHelloWorldServicePadang(HelloWorldService helloWorldServicePadang) {
         this.helloWorldServicePadang = helloWorldServicePadang;
     }
@@ -49,5 +43,4 @@ public class GreetingController {
 
         return greeting;
     }
-
 }

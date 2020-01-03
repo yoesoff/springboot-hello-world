@@ -1,14 +1,6 @@
 package com.ibrahim.config;
 
-import com.ibrahim.services.HelloWorldEnglishImpl;
-import com.ibrahim.services.HelloWorldFactory;
-import com.ibrahim.services.HelloWorldIndoImpl;
-import com.ibrahim.services.HelloWorldService;
-
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class HelloConfig {
