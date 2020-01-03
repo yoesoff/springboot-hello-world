@@ -9,4 +9,36 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:component-scan base-package="com.ibrahim"></context:component-scan>
+
+    <bean id="greetingController" class="com.ibrahim.controllers.GreetingController"></bean>
+
+    <bean id="helloWordFactory" class="com.ibrahim.services.HelloWorldFactory"></bean>
+
+    <!-- Bean padang via factory -->
+    <bean id="padang" factory-bean="helloWordFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="padang"></constructor-arg>
+    </bean>
+
+    <!-- Bean sunda via factory -->
+    <bean id="sunda" factory-bean="helloWordFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="sunda"></constructor-arg>
+    </bean>
+
+    <!-- Bean jawa via factory -->
+    <bean id="java" factory-bean="helloWordFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="jawa"></constructor-arg>
+    </bean>
+
+    <!-- Beans dengan profile dan factory-->
+    <beans profile="indo">
+        <bean id="helloWorldIndoImpl" factory-bean="helloWordFactory" factory-method="createHelloWorldService" primary="true">
+            <constructor-arg value="indo"></constructor-arg>
+        </bean>
+    </beans>
+
+    <beans profile="english">
+        <bean id="helloWorldEnglishImpl" factory-bean="helloWordFactory" factory-method="createHelloWorldService" primary="true">
+            <constructor-arg value="english"></constructor-arg>
+        </bean>
+    </beans>
 </beans>
